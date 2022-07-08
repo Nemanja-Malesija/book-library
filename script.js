@@ -13,6 +13,7 @@ const btnSubmit = document.querySelector('#submit');
 const btnForm = document.querySelector('.btn__form');
 const overlay = document.querySelector('.overlay');
 const closeIcon = document.querySelector('.close__icon');
+const textDiv = document.querySelector('.text__div');
 
 let mylibrary = [];
 
@@ -66,6 +67,8 @@ const submitForm = function () {
     formTitle.value = formAuthor.value = formNpages.value = '';
 
     removeformOverlay();
+    textDiv.classList.add('text__div__transform');
+    list.classList.add('ul__list__transform');
   };
 };
 
@@ -83,6 +86,8 @@ const deleteBookCard = function (i) {
 
     toDelete.remove();
     mylibrary.pop();
+    if (mylibrary.length === 0)
+      textDiv.classList.remove('text__div__transform');
   };
 };
 
